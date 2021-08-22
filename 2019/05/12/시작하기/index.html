@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>rest API 시작하기 | 개떡같은 블로그</title>
+  <meta name="author" content="jihwan">
+  
+  <meta name="description" content="REST 란?
+REpresentaional State Transfer
+데이터를 주고받을 때 필요한 스팩
+표면적인 실체는 스타일 또는 패턴
+
+Restful API 란?
+REST한 방식의 API란 것은 잘 설계된 API를 말한다
+
+웹을 근간으로 HTTP Protocol 기">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="rest API 시작하기"/>
+  <meta property="og:site_name" content="개떡같은 블로그"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">개떡같은 블로그</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> rest API 시작하기</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="REST-란"><a href="#REST-란" class="headerlink" title="REST 란?"></a>REST 란?</h2><ul>
+<li>REpresentaional State Transfer</li>
+<li>데이터를 주고받을 때 필요한 스팩</li>
+<li>표면적인 실체는 스타일 또는 패턴</li>
+</ul>
+<h2 id="Restful-API-란"><a href="#Restful-API-란" class="headerlink" title="Restful API 란?"></a>Restful API 란?</h2><ul>
+<li><p>REST한 방식의 API란 것은 잘 설계된 API를 말한다</p>
+<ol>
+<li>웹을 근간으로 HTTP Protocol 기반</li>
+<li>리소스는 URI로 표현하며 고유해야 한다.</li>
+<li>URI는 단순하고 직관적인 구조여야한다.</li>
+<li>리소스의 상태는 HTTP Method를 활용하여 구분한다.</li>
+<li>xml/json 을 활용해서 데이터를 전송한다.</li>
+</ol>
+<ul>
+<li>restful api 에서 uri는 동사보다는 명사로 표현해 줘야함</li>
+</ul>
+</li>
+</ul>
+<h2 id="CRUD"><a href="#CRUD" class="headerlink" title="CRUD"></a>CRUD</h2><pre><code>* 네트웍을 통해 웹 리소스를 다루기 위한 행위들 가각의 행위를 처리하기 위한 HTTP methods(POST,GET,PUT,DELETE)
+* Create(POST)
+* Retrieve(GET)
+* Update(PUT)
+* Delete(DELETE)
+</code></pre>
+<h2 id="API-디자인"><a href="#API-디자인" class="headerlink" title="API 디자인"></a>API 디자인</h2><ul>
+<li><p>주로 복수명사를 사용</p>
+<ul>
+<li>자동차들 /cars</li>
+<li>영화들   /movies</li>
+<li>꽃들     /flowers</li>
+</ul>
+</li>
+<li><p>필요하면 URL에 하위자원을 표현</p>
+<ul>
+<li>23번 자동차 /cars/23</li>
+</ul>
+</li>
+<li><p>필터 조건을 허용할 수 있음</p>
+<ul>
+<li>/cars?stat=active</li>
+</ul>
+<p> 예제</p>
+<table>
+<thead>
+<tr>
+<th align="left">URL</th>
+<th align="right">METHOD</th>
+<th align="center">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">/movies</td>
+<td align="right">GET</td>
+<td align="center">모든영화리스트가져오기</td>
+</tr>
+<tr>
+<td align="left">/movies</td>
+<td align="right">POST</td>
+<td align="center">영화추가</td>
+</tr>
+<tr>
+<td align="left">/movies:title</td>
+<td align="right">GET</td>
+<td align="center">해당영화 가져오기</td>
+</tr>
+<tr>
+<td align="left">/movies:title</td>
+<td align="right">DEL</td>
+<td align="center">해당영화 삭제하기</td>
+</tr>
+<tr>
+<td align="left">/movies:title</td>
+<td align="right">PUT</td>
+<td align="center">해당영화 업데이트하기</td>
+</tr>
+<tr>
+<td align="left">/movies?min=9</td>
+<td align="right">GET</td>
+<td align="center">상영중인 영화리스트</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2019/05/12/test-page/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a type="button" class="btn btn-default disabled">Next<i class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2019-05-12 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2021 jihwan
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+   </html>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139973556-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139973556-1');
+</script>
